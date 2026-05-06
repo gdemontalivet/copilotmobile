@@ -14,6 +14,19 @@ export default defineConfig({
 		sourcemap: false,
 		// Keep the bundle small enough to ship inside the VSIX.
 		target: 'es2020',
+		// Stable filenames (no content hash). The bundle is committed into
+		// the BYOK extension's `src/extension/byokRemote/dist/` so CI ships
+		// it inside the VSIX (the upstream `.gitignore`'s blanket `dist/`
+		// rule means we force-add this subtree). With hashed filenames,
+		// every rebuild would churn `git status` with rename diffs — stable
+		// names produce a clean content diff per asset instead.
+		rollupOptions: {
+			output: {
+				entryFileNames: 'assets/index.js',
+				chunkFileNames: 'assets/[name].js',
+				assetFileNames: 'assets/[name][extname]',
+			},
+		},
 	},
 	server: {
 		host: true,
