@@ -1,0 +1,21 @@
+{
+	"name": "copilotmobile",
+	"version": "0.0.1",
+	"private": true,
+	"description": "Mobile-friendly web companion for the BYOK Copilot Chat fork",
+	"workspaces": [
+		"protocol",
+		"web"
+	],
+	"scripts": {
+		"build": "npm -w web run build",
+		"dev": "npm -w web run dev",
+		"sync": "node --import tsx scripts/sync-into-extension.ts",
+		"build:sync": "npm run build && npm run sync",
+		"typecheck": "tsc -b"
+	},
+	"devDependencies": {
+		"tsx": "^4.19.2",
+		"typescript": "^5.6.3"
+	}
+}

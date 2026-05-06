@@ -1,0 +1,12 @@
+{
+	"name": "@copilotmobile/protocol",
+	"version": "0.0.1",
+	"private": true,
+	"description": "Shared wire types between the BYOK extension bridge and the mobile web app",
+	"type": "module",
+	"main": "./index.ts",
+	"types": "./index.ts",
+	"exports": {
+		".": "./index.ts"
+	}
+}
